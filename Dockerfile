@@ -37,10 +37,11 @@ RUN ldconfig
 RUN cp -a Tarea4CPP-master/magick /usr/include
 RUN cp -a Tarea4CPP-master/Magick++ /usr/include
 RUN cp -a Tarea4CPP-master/Magick++.h /usr/include
+RUN yes | cp -rf Tarea4CPP-master/cpprest /usr/include
 
 
 
 EXPOSE 8080
 
-CMD g++ Test.cpp base64.cpp -lcpprest -std=c++11 -o demo -lboost_system -lssl -lcrypto -lMagick++
+CMD ["/bin/bash"]
 
