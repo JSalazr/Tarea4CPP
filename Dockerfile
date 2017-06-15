@@ -40,16 +40,10 @@ RUN cp -a Tarea4CPP-master/Magick++.h /usr/include
 RUN rm -r /usr/include/cpprest/json.h
 RUN cp -a Tarea4CPP-master/cpprest/json.h /usr/include/cpprest
 RUN cp -a Tarea4CPP-master/cpprest/details /usr/include/cpprest
-RUN cp -a Tarea4CPP-master/libMagick++.so /usr/lib
-RUN rm -r /usr/lib/x86_64-linux-gnu/libcpprest.so
-RUN cp -a Tarea4CPP-master/libcpprest.so /usr/lib/x86_64-linux-gnu
-RUN rm -r /usr/lib/x86_64-linux-gnu/libcpprest.so.2.8
-RUN cp -a Tarea4CPP-master/libcpprest.so.2.8 /usr/lib/x86_64-linux-gnu
-
-
 
 EXPOSE 8080
 
-CMD cd Tarea4CPP-master && g++ Test.cpp base64.cpp -lcpprest -std=c++11 -o demo -lboost_system -lssl -lcrypto -lMagick++ && ./demo
+CMD cd Tarea4CPP-master && /bin/bash
+
 
 
