@@ -2,7 +2,7 @@
 #include <cpprest/http_client.h>
 #include <cpprest/json.h>
 #include <stdio.h>
-#include <ImageMagick-6/Magick++.h>
+#include <Magick++.h>
 #include "base64.h"
 #pragma comment(lib, "cpprest110_1_1")
  

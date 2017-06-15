@@ -34,7 +34,13 @@ RUN apt-get install -y zip unzip
 RUN wget https://github.com/JSalazr/Tarea4CPP/archive/master.zip
 RUN unzip master.zip
 RUN ldconfig
+RUN cp -a Tarea4CPP-master/magick /usr/include
+RUN cp -a Tarea4CPP-master/Magick++ /usr/include
+RUN cp -a Tarea4CPP-master/Magick++.h /usr/include
+
+
 
 EXPOSE 8080
 
-CMD ["/bin/bash"]
+CMD g++ Test.cpp base64.cpp -lcpprest -std=c++11 -o demo -lboost_system -lssl -lcrypto -lMagick++
+
