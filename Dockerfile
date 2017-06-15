@@ -7,8 +7,6 @@ RUN apt-get update && apt-get install -y \
   gcc \
   clang \
   cmake \
-  libgtest-dev \
-  libgoogle-glog-dev \
   libboost-all-dev \
   g++ `#Fb folly deps` \
   automake \
@@ -16,21 +14,12 @@ RUN apt-get update && apt-get install -y \
   autoconf-archive \
   libtool \
   libboost-all-dev \
-  libccprest-dev \
+  libcpprest-dev \
   libmagick++-dev \
-  libevent-dev \
-  libdouble-conversion-dev \
-  libgoogle-glog-dev \
-  libgflags-dev \
-  liblz4-dev \
-  liblzma-dev \
-  libsnappy-dev \
   make \
   zlib1g-dev \
   binutils-dev \
-  libjemalloc-dev \
-  libssl-dev \
-  libiberty-dev
+  libssl-dev
 
 ENV LD_LIBRARY_PATH=/libs
 ENV CPLUS_INCLUDE_PATH=/libs/include
@@ -38,5 +27,14 @@ ENV CPLUS_INCLUDE_PATH=/libs/include
 RUN mkdir /src
 RUN mkdir /build
 WORKDIR /build
+
+RUN cd /home
+RUN apt-get install -y wget
+RUN apt-get install -y zip unzip
+RUN wget https://github.com/JSalazr/Tarea4CPP/archive/master.zip
+RUN unzip master.zip
+RUN ldconfig
+
+EXPOSE 8080
 
 CMD ["/bin/bash"]
